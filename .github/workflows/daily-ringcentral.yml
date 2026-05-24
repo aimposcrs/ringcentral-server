@@ -1,0 +1,13 @@
+name: Daily RingCentral Task
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # Runs every day at midnight Central Time
+
+jobs:
+  call-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call RingCentral retrieval endpoint
+        run: |
+          curl -X POST https://web-production-7ca12.up.railway.app/run-daily-task
